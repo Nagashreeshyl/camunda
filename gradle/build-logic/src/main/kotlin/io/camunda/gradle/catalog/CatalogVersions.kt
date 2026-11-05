@@ -171,14 +171,15 @@ internal fun VersionCatalogBuilder.catalogVersions(
   version("org-apache-httpcomponents-core5-httpcore5", pomVersion("version.httpcore5"))
   version("org-apache-httpcomponents-httpasyncclient", pomVersion("version.httpasyncclient"))
   version("org-apache-httpcomponents-httpclient", pomVersion("version.httpclient"))
-  // from build-tools/pom.xml (Maven uses plugin.version.surefire separately)
+  // build-tools/pom.xml pins these inline, as it cannot inherit the parent. The reporters built
+  // against them run inside the surefire plugin, so they must match its version.
   version(
     "org-apache-maven-surefire-maven-surefire-common",
-    pomVersion("version.maven-surefire-common"),
+    pomVersion("plugin.version.surefire"),
   )
   version(
     "org-apache-maven-surefire-surefire-myextensions-api",
-    pomVersion("version.surefire-extensions-api"),
+    pomVersion("plugin.version.surefire"),
   )
   version("org-camunda-bpm-camunda-license-check", pomVersion("version.camunda-license-check"))
   version("org-camunda-feel-feel-engine", pomVersion("version.feel-scala"))
