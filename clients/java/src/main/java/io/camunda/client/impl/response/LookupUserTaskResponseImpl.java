@@ -37,7 +37,7 @@ public final class LookupUserTaskResponseImpl implements LookupUserTaskResponse 
   private final Long elementInstanceKey;
   private final List<String> candidateGroups;
   private final List<String> candidateUsers;
-  private final String processDefinitionId;
+  private final String bpmnProcessId;
   private final Long processDefinitionKey;
   private final Integer processDefinitionVersion;
   private final Long processInstanceKey;
@@ -66,7 +66,7 @@ public final class LookupUserTaskResponseImpl implements LookupUserTaskResponse 
     elementInstanceKey = ParseUtil.parseLongOrNull(response.getElementInstanceKey());
     candidateGroups = response.getCandidateGroups();
     candidateUsers = response.getCandidateUsers();
-    processDefinitionId = response.getProcessDefinitionId();
+    bpmnProcessId = response.getProcessDefinitionId();
     processDefinitionKey = ParseUtil.parseLongOrNull(response.getProcessDefinitionKey());
     processDefinitionVersion = response.getProcessDefinitionVersion();
     processInstanceKey = ParseUtil.parseLongOrNull(response.getProcessInstanceKey());
@@ -120,8 +120,8 @@ public final class LookupUserTaskResponseImpl implements LookupUserTaskResponse 
   }
 
   @Override
-  public String getProcessDefinitionId() {
-    return processDefinitionId;
+  public String getBpmnProcessId() {
+    return bpmnProcessId;
   }
 
   @Override

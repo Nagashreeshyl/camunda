@@ -25,13 +25,6 @@ import java.util.Map;
 public interface LookupUserTaskResponse extends BaseUserTask {
 
   /**
-   * Returns the ID of the process definition associated with this task, the ID from the BPMN model.
-   *
-   * @return the process definition ID
-   */
-  String getProcessDefinitionId();
-
-  /**
    * Returns the lifecycle state of the task. While a change is in progress, the task fields and
    * variables are the ones from before the change, and the state names the pending change.
    *

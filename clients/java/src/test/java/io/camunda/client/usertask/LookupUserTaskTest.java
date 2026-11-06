@@ -157,7 +157,7 @@ public final class LookupUserTaskTest extends ClientRestTest {
     assertThat(response.getElementInstanceKey()).isEqualTo(1L);
     assertThat(response.getProcessInstanceKey()).isEqualTo(2L);
     assertThat(response.getRootProcessInstanceKey()).isEqualTo(3L);
-    assertThat(response.getProcessDefinitionId()).isEqualTo("order-process");
+    assertThat(response.getBpmnProcessId()).isEqualTo("order-process");
     assertThat(response.getProcessDefinitionKey()).isEqualTo(4L);
     assertThat(response.getProcessDefinitionVersion()).isEqualTo(5);
     assertThat(response.getTenantId()).isEqualTo("<default>");
@@ -216,7 +216,7 @@ public final class LookupUserTaskTest extends ClientRestTest {
     final String json =
         new CamundaObjectMapper()
             .toJson(lookupResult())
-            .replace("\"state\":\"CREATED\"", "\"state\":\"SUSPENDING\"");
+            .replace("\"state\":\"CREATED\"", "\"state\":\"NON_EXISTING_STATE\"");
     WireMock.stubFor(
         WireMock.post(RestGatewayPaths.getUserTaskLookupUrl(USER_TASK_KEY))
             .willReturn(WireMock.okJson(json)));
