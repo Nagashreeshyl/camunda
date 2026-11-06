@@ -57,11 +57,10 @@ public class NodeId extends AbstractIdentifier<String> implements Comparable<Nod
     return new NodeId(id);
   }
 
-  // Declared only because checkstyle's EqualsHashCode rule requires equals() and hashCode() to
-  // live together; the inherited implementation already hashes the backing identifier.
+  // Preserve the legacy Objects.hash(id()) value without allocating its varargs array.
   @Override
   public int hashCode() {
-    return super.hashCode();
+    return Objects.hash(id());
   }
 
   @Override
