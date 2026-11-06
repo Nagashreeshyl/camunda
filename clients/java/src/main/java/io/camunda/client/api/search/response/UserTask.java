@@ -27,9 +27,6 @@ public interface UserTask extends BaseUserTask {
   /** State of the task */
   UserTaskState getState();
 
-  /** BPMN process id of the process associated with this task */
-  String getBpmnProcessId();
-
   /** Name of the process definition */
   String getProcessName();
 

@@ -23,9 +23,6 @@ import java.util.Set;
 /**
  * The fields of a user task that are known both to the engine and to the secondary storage, shared
  * by the user task search results and the user task lookup.
- *
- * <p>The process definition ID is shared too, but is not declared here: the search result names it
- * {@code getBpmnProcessId()} and the lookup {@code getProcessDefinitionId()}.
  */
 public interface BaseUserTask {
 
@@ -45,6 +42,9 @@ public interface BaseUserTask {
 
   /** Candidate users for the task */
   List<String> getCandidateUsers();
+
+  /** BPMN process id of the process associated with this task */
+  String getBpmnProcessId();
 
   /** Key of the process definition */
   Long getProcessDefinitionKey();
